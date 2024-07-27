@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-nadeport
+spec:
+  selector:
+    tier: frontend
+  ports:
+  - port: 80
+  type: NodePort

@@ -1,0 +1,15 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: standard
+provisioner: kubernetes.io/aws-ebs # determines what volume plugin is used for provisioning PVs
+parameters:
+  type: gp2 # EBS type - supports io1, gp2, sc1, st1
+reclaimPolicy: Retain # see the explanation below
+allowVolumeExpansion: true # allows to resize the volume if set to true
+mountOptions:
+  - debug
+volumeBindingMode: Immediate
+
+
+---
